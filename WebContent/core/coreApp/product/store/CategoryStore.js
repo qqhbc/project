@@ -1,0 +1,19 @@
+/**分类数据集类*/ 
+Ext.define("core.product.store.CategoryStore",{
+ 	extend:"Ext.data.Store",
+	model:"core.product.model.CategoryModel",
+	//autoSync:true,//与服务器同步
+	proxy:{
+		type:"ajax",
+		url:"category/combo_category.htm",
+		reader:{
+			type:"json",
+			root:"rows",
+			totalProperty :"totalCount"		
+		},
+		writer:{
+			type:"json"
+		}
+	},
+	autoLoad:true	
+ });
